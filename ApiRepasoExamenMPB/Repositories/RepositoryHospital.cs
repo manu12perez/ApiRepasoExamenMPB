@@ -27,9 +27,9 @@ namespace ApiRepasoExamenMPB.Repositories
             return await this.context.Plantillas.ToListAsync();
         }
 
-        public async Task<Plantilla> FindPlantillaAsync(int idHospital)
+        public async Task<Plantilla> FindPlantillaAsync(int idEmpleado)
         {
-            return await this.context.Plantillas.FirstOrDefaultAsync(x => x.IdHospital == idHospital);
+            return await this.context.Plantillas.FirstOrDefaultAsync(x => x.IdEmpleado == idEmpleado);
         }
 
         public async Task<List<Sala>> GetSalasAsync()
@@ -37,9 +37,9 @@ namespace ApiRepasoExamenMPB.Repositories
             return await this.context.Salas.ToListAsync();
         }
 
-        public async Task<Sala> FindSalaAsync(int idHospital)
+        public async Task<Sala> FindSalaAsync(int salaCod)
         {
-            return await this.context.Salas.FirstOrDefaultAsync(x => x.IdHospital == idHospital);
+            return await this.context.Salas.FirstOrDefaultAsync(x => x.SalaCod == salaCod);
         }
 
         public async Task<int> GetMaxIdPlantilla()

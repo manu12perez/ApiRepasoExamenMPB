@@ -23,7 +23,7 @@ namespace ApiRepasoExamenMPB.Controllers
             return await this.repo.GetHospitalesAsync();
         }
 
-        [HttpGet("Hospital/{id}")]
+        [HttpGet("FindHospital/{id}")]
         public async Task<ActionResult<Hospital>> FindHospital(int id)
         {
             return await this.repo.FindHospitalAsync(id);
@@ -35,7 +35,7 @@ namespace ApiRepasoExamenMPB.Controllers
             return await this.repo.GetSalasAsync();
         }
 
-        [HttpGet("Sala/{salacod}")]
+        [HttpGet("FindSala/{salacod}")]
         public async Task<ActionResult<Sala>> FindSala(int salacod)
         {
             return await this.repo.FindSalaAsync(salacod);
@@ -47,10 +47,10 @@ namespace ApiRepasoExamenMPB.Controllers
             return await this.repo.GetPlantillasAsync();
         }
 
-        [HttpGet("Plantilla/{id}")]
-        public async Task<ActionResult<Plantilla>> FindPlantilla(int id)
+        [HttpGet("FindPlantilla/{idempleado}")]
+        public async Task<ActionResult<Plantilla>> FindPlantilla(int idempleado)
         {
-            return await this.repo.FindPlantillaAsync(id);
+            return await this.repo.FindPlantillaAsync(idempleado);
         }
 
         [HttpPost("InsertPlantilla")]
@@ -69,21 +69,21 @@ namespace ApiRepasoExamenMPB.Controllers
             return Ok();
         }
 
-        [HttpDelete("DeletePlantilla/{id}")]
-        public async Task<ActionResult> DeletePlantilla(int id)
+        [HttpDelete("DeletePlantilla/{idempleado}")]
+        public async Task<ActionResult> DeletePlantilla(int idempleado)
         {
-            await this.repo.DeletePlantillaAsync(id);
+            await this.repo.DeletePlantillaAsync(idempleado);
             return Ok();
         }
 
-        [HttpGet("PlantillasSala/{salaCod}")]
+        [HttpGet("FindPlantillaBySala/{salaCod}")]
         public async Task<ActionResult<List<Plantilla>>> GetPlantillasBySala(int salaCod)
         {
             var plantillas = await this.repo.GetPlantillasBySala(salaCod);
             return plantillas;
         }
 
-        [HttpGet("PlantillasHospital/{nombre}")]
+        [HttpGet("FindPlantillaByHospital/{nombre}")]
         public async Task<ActionResult<List<Plantilla>>> GetPlantillasByHospital(string nombre)
         {
             var plantillas = await this.repo.GetPlantillasByHospital(nombre);
