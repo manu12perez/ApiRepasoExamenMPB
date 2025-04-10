@@ -10,5 +10,13 @@ namespace ApiRepasoExamenMPB.Data
         public DbSet<Hospital> Hospitales { get; set; }
         public DbSet<Plantilla> Plantillas { get; set; }
         public DbSet<Sala> Salas { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Sala>()
+                .HasKey(s => new { s.SalaCod, s.IdHospital });
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

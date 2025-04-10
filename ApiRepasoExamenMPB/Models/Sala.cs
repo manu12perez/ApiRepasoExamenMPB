@@ -9,7 +9,6 @@ namespace ApiRepasoExamenMPB.Models
         [Column("HOSPITAL_COD")]
         public int IdHospital { get; set; }
 
-        [Key]
         [Column("SALA_COD")]
         public int SalaCod { get; set; }
 
